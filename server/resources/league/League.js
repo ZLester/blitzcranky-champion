@@ -2,8 +2,11 @@ const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
 
 class League {
-  constructor(api_key) {
+  constructor({ api_key }) {
     this.api_key = process.env.LEAGUE_API_KEY || api_key;
+    if (!this.api_key) {
+      throw new Error('No League API Key Provided');
+    }
   }
 
   retrieveChampionIconByKey(key) {
