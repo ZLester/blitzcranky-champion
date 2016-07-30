@@ -1,9 +1,10 @@
 const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
+const { LEAGUE_API_KEY } = require('../../config');
 
 class League {
   constructor({ api_key }) {
-    this.api_key = process.env.LEAGUE_API_KEY || api_key;
+    this.api_key = api_key;
     if (!this.api_key) {
       throw new Error('No League API Key Provided');
     }
@@ -38,4 +39,4 @@ class League {
   }
 }
 
-module.exports = new League();
+module.exports = new League({ api_key: LEAGUE_API_KEY });
