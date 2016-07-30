@@ -1,0 +1,23 @@
+{
+  "name": "blitzcranky",
+  "version": "0.0.1",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jimp": "^0.2.24",
+    "mongoose": "^4.5.7",
+    "morgan": "^1.7.0",
+    "request": "^2.74.0",
+    "tinycolor2": "^1.4.1"
+  },
+  "engines": {
+    "node": "6.2.0"
+  },
+  "scripts": {
+    "start": "node server/"
+  },
+  "main": "index.js",
+  "author": "Zachary Lester",
+  "license": "ISC"
+}
