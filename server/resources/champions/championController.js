@@ -44,11 +44,11 @@ exports.update = (req, res) => {
         // Retrieve detailed information about each free champion.
         .map(freeChampion => League.retrieveChampionById(freeChampion.id)))
     .then(championRequests => Promise.all(championRequests))
-    // Add the static imageUrls for each champions background and icon
+    // Add the static imageUrls for each champions' background, icon, and role emblems
     .then(champions => champions.map(addImageUrls))
     .then(champions => {
       // Generate complementary colors for the champion title/name via the images module...
-      const colorRequests = champions.map(champion => getChampionColors(champion));
+      const colorRequests = champions.map(getChampionColors);
       return Promise.all(colorRequests)
         .then(colorsList => colorsList
           // ...and add those colors to each champion

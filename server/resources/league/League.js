@@ -18,10 +18,15 @@ class League {
     return `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_0.jpg`;
   }
 
-  retrieveChampionPicsByKey(key) {
+  retrieveChampionEmblemsByTags(tags) {
+    return tags.map(tag => `http://riot-web-static.s3.amazonaws.com/images/news/Champion-Rotation/role_watermark_${tag.toLowerCase()}_med.png`);
+  }
+
+  retrieveChampionPics(champion) {
     return {
-      icon: this.retrieveChampionIconByKey(key),
-      background: this.retrieveChampionBackgroundByKey(key),
+      icon: this.retrieveChampionIconByKey(champion.key),
+      background: this.retrieveChampionBackgroundByKey(champion.key),
+      emblems: this.retrieveChampionPrimaryEmblemByRole(champion.tags),
     };
   }
 

@@ -4,7 +4,7 @@ const Image = require('../images/Image');
 exports.addImageUrls = champion => {
   return Object.assign(
     champion,
-    League.retrieveChampionPicsByKey(champion.key)
+    League.retrieveChampionPics(champion)
   );
 };
 
