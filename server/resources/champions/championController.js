@@ -32,19 +32,29 @@ exports.updateOne = (req, res) => {
     .catch(err => res.status(500).json({ error: err.message }));
 };
 
+// Replaces all champions in the database with the current free rotation.
+// Utilizes the images module to generate complementary colors for the champion title/name
+// This method gets run once daily by the blitzcranky-worker Champion update service
 exports.update = (req, res) => {
+  // Remove all champions from the database
   Champion.remove({})
+    // Retrieve the ID's of the free champions for the week.
     .then(() => League.retrieveFreeChampions())
     .then(freeChampions => freeChampions
+        // Retrieve detailed information about each free champion.
         .map(freeChampion => League.retrieveChampionById(freeChampion.id)))
     .then(championRequests => Promise.all(championRequests))
+    // Add the static imageUrls for each champions background and icon
     .then(champions => champions.map(addImageUrls))
     .then(champions => {
+      // Generate complementary colors for the champion title/name via the images module...
       const colorRequests = champions.map(champion => getChampionColors(champion));
       return Promise.all(colorRequests)
         .then(colorsList => colorsList
+          // ...and add those colors to each champion
           .map((colors, index) => Object.assign({}, champions[index], { colors })));
     })
+    //  Add the modified champions to the database
     .then(champions => Champion.create(champions))
     .then(champions => res.json(champions))
     .catch(err => res.status(500).json({ error: err.message }));
