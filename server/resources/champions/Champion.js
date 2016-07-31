@@ -26,6 +26,9 @@ const championSchema = new mongoose.Schema({
   },
   icon: String,
   background: String,
+  emblems: [{
+    type: String,
+  }],
 });
 
 module.exports = mongoose.model('Champion', championSchema);
