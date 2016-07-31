@@ -22,7 +22,7 @@ Blitzcranky is made up of multiple services, including:
 - Redis 2.6.x
 - Cron 1.x
 
-> Note: To run the Champion Service locally you need to obtain a key from the [Riot Developer's API](https://developer.riotgames.com/) first. The Champion Service expects your API key to be found as the environment variable `LEAGUE_API_KEY`
+> Note: To run the Champion Service locally you need to obtain a key from the [Riot Developer's API](https://developer.riotgames.com/) first. The Champion Service expects your API key to be found as the environmental variable `LEAGUE_API_KEY`
 
 ## Architecture
 ![blitzcranky architecture diagram](http://i.imgur.com/OQXnuJZ.png "Blitzcranky Architecture Diagram")
