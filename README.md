@@ -1,4 +1,4 @@
-# Blitzcranky
+# Blitzcranky Champion Service
 ### Visualizer for the latest League of Legends weekly free champion rotation
 
 ## Components
