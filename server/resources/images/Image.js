@@ -50,7 +50,6 @@ class Image {
         });
     });
   }
-  
 }
 
 module.exports = new Image();
