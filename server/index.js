@@ -1,6 +1,7 @@
 const app = require('./server');
+const logger = require('winston');
 const { PORT } = require('./config');
 
 app.listen(PORT, () => {
-  console.log(`Blitzcranky-champion listening on port ${PORT}`);
+  logger.info(`Blitzcranky-champion listening on port ${PORT}`);
 });

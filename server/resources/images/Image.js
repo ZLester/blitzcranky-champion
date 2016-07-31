@@ -25,12 +25,12 @@ class Image {
 
   getAverageColorByPath(path) {
     return new Promise((resolve, reject) => {
-      let red = 0;
-      let green = 0;
-      let blue = 0;
-      let count = 0;
       this.readImageByPath(path)
         .then(image => {
+          let red = 0;
+          let green = 0;
+          let blue = 0;
+          let count = 0;
           image.scan(0, 0, image.bitmap.width, image.bitmap.height, (x, y, idx) => {
             red += image.bitmap.data[idx + 0];
             green += image.bitmap.data[idx + 1];
