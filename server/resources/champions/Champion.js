@@ -19,10 +19,10 @@ const championSchema = new mongoose.Schema({
     type: String,
   }],
   info: {
-    attack: String,
+    attack: Number,
     defense: Number,
-    magic: String,
-    difficulty: String,
+    magic: Number,
+    difficulty: Number,
   },
   icon: String,
   background: String,
