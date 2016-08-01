@@ -4,8 +4,11 @@
   "dependencies": {
     "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "express": "^4.14.0",
     "jimp": "^0.2.24",
+    "mocha": "^2.5.3",
     "mongoose": "^4.5.7",
     "morgan": "^1.7.0",
     "request": "^2.74.0",
@@ -16,7 +19,8 @@
     "node": "6.2.0"
   },
   "scripts": {
-    "start": "node server/"
+    "start": "node server/",
+    "test": "LEAGUE_API_KEY=YOUR_KEY_HERE mocha"
   },
   "main": "index.js",
   "author": "Zachary Lester",
