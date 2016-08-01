@@ -26,7 +26,7 @@ class League {
     return {
       icon: this.retrieveChampionIconByKey(champion.key),
       background: this.retrieveChampionBackgroundByKey(champion.key),
-      emblems: this.retrieveChampionPrimaryEmblemByRole(champion.tags),
+      emblems: this.retrieveChampionEmblemsByTags(champion.tags),
     };
   }
 
