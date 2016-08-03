@@ -2,7 +2,7 @@
 Visualizer for the latest League of Legends weekly free champion rotation
 
 ## Demo
-- A deployed version of the static server cluster and React client can be found [here](https://blitzcranky.herokuapp.com).
+- A deployed version of the static server cluster and React client can be found [here](http://www.blitzcranky.win).
 - A deployed version of the Champion service can be found [here](https://blitzcranky-champion.herokuapp.com/api/champions).
 
 ## Services
