@@ -36,11 +36,10 @@ exports.updateOne = (req, res) => {
 // Utilizes the images module to generate complementary colors for the champion title/name
 // This method gets run once daily by the blitzcranky-worker Champion update service
 exports.update = (req, res) => {
+  // Retrieve the ID's of the free champions for the week.
   // Remove all champions from the database
-  Champion.remove({})
-    // Retrieve the ID's of the free champions for the week.
-    .then(() => League.retrieveFreeChampions())
-    .then(freeChampions => freeChampions
+  Promise.all([League.retrieveFreeChampions(), Champion.remove({})])
+    .spread(freeChampions => freeChampions
         // Retrieve detailed information about each free champion.
         .map(freeChampion => League.retrieveChampionById(freeChampion.id)))
     .then(championRequests => Promise.all(championRequests))
