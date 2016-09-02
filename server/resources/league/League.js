@@ -11,6 +11,10 @@ class League {
   }
 
   retrieveChampionIconByKey(key) {
+    // Kled doesn't have an icon yet
+    if (key === 'Kled') {
+      key = 'Volibear';
+    }
     return `https://ddragon.leagueoflegends.com/cdn/6.14.2/img/champion/${key}.png`;
   }
 
