@@ -45,9 +45,7 @@ class Image {
             }
           });
         })
-        .catch(err => {
-          reject(err);
-        });
+        .catch(err => resolve('#FFFFB2'));
     });
   }
 }

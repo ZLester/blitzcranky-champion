@@ -1,3 +1,4 @@
+const Promise = require('bluebird');
 const Champion = require('./Champion');
 const League = require('../league/League');
 const { addImageUrls, getChampionColors } = require('../league/leagueUtils.js');

@@ -17,6 +17,19 @@ describe('Server Functionality', () => {
 
   it('should serve the 10 current free champions on a GET to /api/champions', done => {
     chai.request(app)
+      .put('/api/champions')
+      .end((err, res) => {
+        console.log(err);
+        expect(err).to.equal(null);
+        expect(res.status).to.equal(200);
+        expect(res.ok).to.equal(true);
+        expect(res.body.length).to.equal(10);
+        done();
+      });
+  });
+
+  it('should serve the 10 current free champions on a GET to /api/champions', done => {
+    chai.request(app)
       .get('/api/champions')
       .end((err, res) => {
         expect(err).to.equal(null);
