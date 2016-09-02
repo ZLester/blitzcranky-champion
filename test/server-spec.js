@@ -19,7 +19,6 @@ describe('Server Functionality', () => {
     chai.request(app)
       .put('/api/champions')
       .end((err, res) => {
-        console.log(err);
         expect(err).to.equal(null);
         expect(res.status).to.equal(200);
         expect(res.ok).to.equal(true);

@@ -7,6 +7,10 @@ class Image {
   }
 
   readImageByPath(path) {
+    // Kled doesn't have an icon yet
+    if (path === 'https://ddragon.leagueoflegends.com/cdn/6.14.2/img/champion/Kled.png') {
+      path = 'https://ddragon.leagueoflegends.com/cdn/6.14.2/img/champion/Volibear.png';
+    }
     return Jimp.read(path);
   }
 
@@ -45,6 +49,7 @@ class Image {
             }
           });
         })
+        // Resolve on a light color if the image read fails
         .catch(err => resolve('#FFFFB2'));
     });
   }
